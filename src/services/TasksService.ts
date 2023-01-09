@@ -30,14 +30,6 @@ export default {
     })
   },
 
-  async DeleteTask(id: number) {
-    return axios.delete(`${url}/task/${id}`)
-      .then((response: AxiosResponse<ITasks[]>) => response)
-      .catch((error: AxiosError) => {
-        return error
-      })
-  },
-
   async SetTaskAsDone(id: number, userId: string) {
     return axios.put(`${url}/task/${id}`, {
       userId,

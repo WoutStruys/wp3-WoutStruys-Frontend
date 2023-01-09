@@ -20,11 +20,6 @@ export default [
         path: '/users',
       },
       {
-        component: () => import('../pages/Types.vue'),
-        name: Routes.TYPES,
-        path: '/types',
-      },
-      {
         component: () => import('../pages/LogOut.vue'),
         name: Routes.LOGOUT,
         path: '/logout',

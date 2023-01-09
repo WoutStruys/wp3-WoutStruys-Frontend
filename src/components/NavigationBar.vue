@@ -20,16 +20,9 @@ const isLoggedIn = ref<boolean>(false);
 const username = ref<string>("");
 
 const navigation = [
-  { name: "Settings", href: "/settings", current: true },
   { name: "Logout", href: "/logout", current: true },
 ];
 
-const url = `${import.meta.env.VITE_BACKEND_PROTOCOL}://${
-  import.meta.env.VITE_BACKEND_DOMAIN
-}:${import.meta.env.VITE_BACKEND_PORT}/auth/google/link`;
-
-const token = ref<string>(Cookies.get("token") as string);
-const returnurl = ref<string>(document.URL);
 
 onMounted(async () => {
   const response = await AuthenticationService.GetUserInfo();

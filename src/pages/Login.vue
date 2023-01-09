@@ -4,7 +4,6 @@ import { useHead } from "@vueuse/head";
 import AuthenticationService from "../services/AuthenticationService";
 import { AxiosError } from "axios";
 import { useRouter, useRoute } from "vue-router";
-import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 import 'sweetalert2/dist/sweetalert2.min.css'
 const router = useRouter();

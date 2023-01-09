@@ -5,7 +5,6 @@ import { onMounted, ref } from "vue";
 import type ITask from "../models/ITask";
 import type IUser from "../models/IUser";
 import TasksService from "../services/TasksService";
-
 import UsersService from "../services/UsersService";
 import Swal from "sweetalert2";
 import 'sweetalert2/dist/sweetalert2.min.css'

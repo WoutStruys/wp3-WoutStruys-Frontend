@@ -1,9 +1,7 @@
 import axios, { AxiosError, AxiosResponse } from 'axios'
 import ErrorModel from '../models/ErrorModel';
 import LoginResponseModel from '../models/LoginResponseModel';
-import Cookies from 'js-cookie';
 import UserInfoModel from '../models/UserInfoModel';
-import UserLogin from '../models/UserLogin';
 axios.defaults.withCredentials = true
 
 const url = `${import.meta.env.VITE_BACKEND_PROTOCOL}://${import.meta.env.VITE_BACKEND_DOMAIN}:${import.meta.env.VITE_BACKEND_PORT}`;

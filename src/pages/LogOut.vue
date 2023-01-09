@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useHead } from '@vueuse/head'
 import AuthenticationService from "../services/AuthenticationService";
-import Cookies from 'js-cookie';
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
