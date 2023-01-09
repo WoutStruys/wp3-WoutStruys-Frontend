@@ -23,16 +23,10 @@ useHead({
 
 let tasks = ref<ITask[]>([]);
 let users = ref<IUser[]>([]);
-let Todo = ref<string>("");
-let Status = ref<string>("");
 let editableId = ref<number>(0);
 let editableName = ref<string>("");
-let editableDuration = ref<string>("");
 
 let selectedUser = ref<number>();
-
-let putName = ref<string>("");
-let putDuration = ref<string>("");
 
 let showmodal = ref<boolean>(false);
 
@@ -79,29 +73,12 @@ const SaveEdit = () => {
     },
     );
     showmodal.value = false;
+    window.location.reload();
 };
 
-
-const DeleteTask = async (id: number) => {
-  Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!",
-  }).then(async (result) => {
-    if (result.isConfirmed) {
-      const response2 = await TasksService.DeleteTask(id);
-      await reloadTasks();
-    }
-  });
-};
 
 const reloadTasks = async () => {
   editableId.value = 0;
-  editableDuration.value = "";
   editableName.value = "";
   showmodal.value = false;
   const response = await TasksService.GetAllUnassignedTasks();
@@ -111,7 +88,6 @@ const reloadTasks = async () => {
 
 const loadUsers = async () => {
   editableId.value = 0;
-  editableDuration.value = "";
   editableName.value = "";
   showmodal.value = false;
   const response = await UsersService.GetAllUsers();
@@ -131,7 +107,7 @@ const loadUsers = async () => {
         <P class="headerT">Status</P>
         <div />
       </section>
-      <section v-for="(line, index) in tasks" :key="line.id">
+      <section v-for="(line, index) in tasks" :key="line._id">
         <div class="typeRow">
           <div />
           <p class="name">

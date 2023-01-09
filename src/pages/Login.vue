@@ -30,6 +30,7 @@ const errormessage = ref<string>("");
 
 const handleSignIn = async (e: MouseEvent) => {
   e.preventDefault();
+  
   errormessage.value = "";
   const regex = /^[a-zA-Z0-9_]+$/;
 
@@ -52,13 +53,15 @@ const handleSignIn = async (e: MouseEvent) => {
   }
 
   if (emailok && passwordok) {
+    console.log("handleSignIn")
     const response = await AuthenticationService.DoLogin(
       username.value,
       password.value
     );
+    console.log("response" + response)
     if (response instanceof AxiosError) {
-      errormessage.value = response.response?.data.error as string;
-      console.log(errormessage.value);
+      console.log(response.response?.data)
+      errormessage.value = response.response?.data.message as string;
       Swal.fire({
       title: "Oeps!",
       html: errormessage.value.substring(0, errormessage.value.length - 4),

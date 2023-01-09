@@ -12,7 +12,7 @@ export default {
         return error
       })
   },
-  async GetAllUserTasks(id: number) {
+  async GetAllUserTasks(id: string) {
     return axios.get(`${url}/task/${id}`)
       .then((response: AxiosResponse<ITasks[]>) => response)
       .catch((error: AxiosError) => {
@@ -38,7 +38,7 @@ export default {
       })
   },
 
-  async SetTaskAsDone(id: number, userId: number) {
+  async SetTaskAsDone(id: number, userId: string) {
     return axios.put(`${url}/task/${id}`, {
       userId,
       completed: true,

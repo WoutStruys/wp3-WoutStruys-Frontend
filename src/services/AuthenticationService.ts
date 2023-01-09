@@ -13,7 +13,7 @@ export default {
     return await axios.post(`${url}/user/login`, {
         username,
         password
-    } ) 
+    }, { withCredentials: true } ) 
     .then((response: AxiosResponse<LoginResponseModel>) => {
       // save response in session storage
       console.log(response.data.user._id)
